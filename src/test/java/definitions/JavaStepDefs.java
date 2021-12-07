@@ -183,6 +183,7 @@ Result for 20:
 
     @And("Task two")
     public void taskTwo() {
+
         divis(12);
     }
 
@@ -215,18 +216,58 @@ Result for 20:
 //
 //    }
 
+    // Write a function that reverses string
     @And("Task Four")
     public void taskFour() {
+        String word = "Otabek";
+        String revWord =  reverseWord(word);
+        System.out.println(revWord);
 
     }
-
-    //Write a function that reverses string
-    @And("Task Five")
-    public void taskFive() {
+    public String reverseWord(String str){
+        String revertStr = "";
+        for (int i = str.length()-1; i >= 0; i--){
+            char c = str.charAt(i);
+            revertStr = revertStr.concat(String.valueOf(c));
+        }
+        return revertStr;
     }
 
-    //Write a function that reverses words in a sentence
+        //Write a function that reverses words in a sentence
     @And("Task Six")
     public void taskSix() {
+        String sentence = "Write a function that reverses words in a sentence";
+        String revSent =  reverseSent(sentence);
+        System.out.println(revSent);
+    }
+
+    private String reverseSent(String sentence){
+        String revert = "";
+        String[] strArray = sentence.split(" ");
+        for(int i = 0; i < strArray.length; i++){
+            strArray[i] = reverseWord(strArray[i]);
+        }
+        return String.join(" ", strArray);
+    }
+    @And("Task Five")
+    public void taskFive() {
+        fizzbuzz(15);
+
+    }
+    private void fizzbuzz(int num){
+        System.out.println("fizzbuzz for " + num);
+        for(int i = 1; i <= num; i++ ){
+            System.out.print(i + " ");
+            if(num % 3 == 0 && num % 5 == 0){
+                System.out.print("FizzBuzz");
+            }else if(num % 3 == 0){
+                System.out.print("Fizz");
+            }else if(num % 5 == 0){
+                System.out.print("Buzz");
+            }else{
+                System.out.println(i + " ");
+            }
+        }
     }
 }
+
